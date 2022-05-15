@@ -6,7 +6,7 @@
   <link href="https://like268411.github.io/atom.xml" rel="self"/>
   
   <link href="https://like268411.github.io/"/>
-  <updated>2022-05-11T00:02:30.500Z</updated>
+  <updated>2022-05-15T08:57:22.881Z</updated>
   <id>https://like268411.github.io/</id>
   
   <author>
@@ -17,112 +17,110 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>第三篇文章</title>
-    <link href="https://like268411.github.io/2022/05/11/article-third-copy-10/"/>
-    <id>https://like268411.github.io/2022/05/11/article-third-copy-10/</id>
-    <published>2022-05-11T00:02:26.821Z</published>
-    <updated>2022-05-11T00:02:30.500Z</updated>
+    <title>15道ES6 Promise实战练习题</title>
+    <link href="https://like268411.github.io/2022/05/15/15-dao-es6-promise-shi-zhan-lian-xi-ti/"/>
+    <id>https://like268411.github.io/2022/05/15/15-dao-es6-promise-shi-zhan-lian-xi-ti/</id>
+    <published>2022-05-14T16:00:00.000Z</published>
+    <updated>2022-05-15T08:57:22.881Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;欢迎欢迎&lt;/p&gt;
-</summary>
+    <summary type="html">&lt;p&gt;Promise 是 ES6 中的特性，现在很多前端框架像 AngularJS，Vue 等在 HTTP 请求之后都是返回的 Promise 处理,因此 Promise 是必须要掌握的一个知识点。&lt;/p&gt;
+&lt;p&gt;本文将为大家分享 15 道由易到难的 ES6 Promise</summary>
         
       
     
     
     
+    <category term="ES6精选文章" scheme="https://like268411.github.io/categories/ES6%E7%B2%BE%E9%80%89%E6%96%87%E7%AB%A0/"/>
+    
+    
+    <category term="ES6" scheme="https://like268411.github.io/tags/ES6/"/>
+    
+    <category term="Promise" scheme="https://like268411.github.io/tags/Promise/"/>
     
   </entry>
   
   <entry>
-    <title>第三篇文章</title>
-    <link href="https://like268411.github.io/2022/05/11/article-third-copy-9/"/>
-    <id>https://like268411.github.io/2022/05/11/article-third-copy-9/</id>
-    <published>2022-05-11T00:02:25.907Z</published>
-    <updated>2022-05-10T13:15:37.548Z</updated>
+    <title>重温ES6核心概念和基本用法</title>
+    <link href="https://like268411.github.io/2022/05/12/chong-wen-es6-he-xin-gai-nian-he-ji-ben-yong-fa/"/>
+    <id>https://like268411.github.io/2022/05/12/chong-wen-es6-he-xin-gai-nian-he-ji-ben-yong-fa/</id>
+    <published>2022-05-11T16:00:00.000Z</published>
+    <updated>2022-05-15T12:07:50.915Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;欢迎欢迎&lt;/p&gt;
-</summary>
+    <summary type="html">&lt;h2 id=&quot;ES6-新特性列表&quot;&gt;&lt;a href=&quot;#ES6-新特性列表&quot; class=&quot;headerlink&quot; title=&quot;ES6 新特性列表&quot;&gt;&lt;/a&gt;ES6 新特性列表&lt;/h2&gt;&lt;hr&gt;
+&lt;p&gt;相比 ES5，ES6</summary>
         
       
     
     
     
+    <category term="ES6精选文章" scheme="https://like268411.github.io/categories/ES6%E7%B2%BE%E9%80%89%E6%96%87%E7%AB%A0/"/>
+    
+    
+    <category term="ES6" scheme="https://like268411.github.io/tags/ES6/"/>
     
   </entry>
   
   <entry>
-    <title>第三篇文章</title>
-    <link href="https://like268411.github.io/2022/05/11/article-third-copy-8/"/>
-    <id>https://like268411.github.io/2022/05/11/article-third-copy-8/</id>
-    <published>2022-05-11T00:02:25.415Z</published>
-    <updated>2022-05-10T13:15:37.548Z</updated>
+    <title>hello word</title>
+    <link href="https://like268411.github.io/2022/05/10/hello-world/"/>
+    <id>https://like268411.github.io/2022/05/10/hello-world/</id>
+    <published>2022-05-10T12:27:00.447Z</published>
+    <updated>2022-05-15T07:29:19.826Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;欢迎欢迎&lt;/p&gt;
-</summary>
+    <summary type="html">&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a</summary>
         
       
     
     
     
+    <category term="启动hexo" scheme="https://like268411.github.io/categories/%E5%90%AF%E5%8A%A8hexo/"/>
+    
+    
+    <category term="默认" scheme="https://like268411.github.io/tags/%E9%BB%98%E8%AE%A4/"/>
+    
+    <category term="hexo" scheme="https://like268411.github.io/tags/hexo/"/>
     
   </entry>
   
   <entry>
-    <title>第三篇文章</title>
-    <link href="https://like268411.github.io/2022/05/11/article-third-copy-7/"/>
-    <id>https://like268411.github.io/2022/05/11/article-third-copy-7/</id>
-    <published>2022-05-11T00:02:24.874Z</published>
-    <updated>2022-05-10T13:15:37.548Z</updated>
+    <title>劝学</title>
+    <link href="https://like268411.github.io/2022/05/10/quan-xue/"/>
+    <id>https://like268411.github.io/2022/05/10/quan-xue/</id>
+    <published>2022-05-09T16:00:00.000Z</published>
+    <updated>2022-05-15T07:27:05.803Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;欢迎欢迎&lt;/p&gt;
-</summary>
+    <summary type="html">&lt;h2 id=&quot;第一段&quot;&gt;&lt;a href=&quot;#第一段&quot; class=&quot;headerlink&quot; title=&quot;第一段&quot;&gt;&lt;/a&gt;第一段&lt;/h2&gt;&lt;p&gt;君子曰：学不可以已。&lt;span class=&quot;github-emoji&quot;&gt;&lt;span&gt;😄&lt;/span&gt;&lt;img</summary>
         
       
     
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>第三篇文章</title>
-    <link href="https://like268411.github.io/2022/05/11/article-third-copy-6/"/>
-    <id>https://like268411.github.io/2022/05/11/article-third-copy-6/</id>
-    <published>2022-05-11T00:02:19.853Z</published>
-    <updated>2022-05-10T13:15:37.548Z</updated>
+    <category term="文言文" scheme="https://like268411.github.io/categories/%E6%96%87%E8%A8%80%E6%96%87/"/>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;欢迎欢迎&lt;/p&gt;
-</summary>
-        
-      
+    <category term="激励" scheme="https://like268411.github.io/tags/%E6%BF%80%E5%8A%B1/"/>
     
-    
-    
+    <category term="学习" scheme="https://like268411.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   

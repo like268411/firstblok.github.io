@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="15道ES6 Promise实战练习题, 果果不一样">
+    <meta name="description" content="从前很慢，一生只爱一人。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>15道ES6 Promise实战练习题 | 果果不一样</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.1.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="果果不一样" type="application/atom+xml">
+</head>
+ 
+
+  <body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">果果不一样</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">果果不一样</div>
+        <div class="logo-desc">
+            
+            从前很慢，一生只爱一人。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/like268411" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/like268411" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+ 
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">15道ES6 Promise实战练习题</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/ES6/">
+                                <span class="chip bg-color">ES6</span>
+                            </a>
+                        
+                            <a href="/tags/Promise/">
+                                <span class="chip bg-color">Promise</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/ES6%E7%B2%BE%E9%80%89%E6%96%87%E7%AB%A0/" class="post-category">
+                                ES6精选文章
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-05-15
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.9k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    12 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>Promise 是 ES6 中的特性，现在很多前端框架像 AngularJS，Vue 等在 HTTP 请求之后都是返回的 Promise 处理,因此 Promise 是必须要掌握的一个知识点。</p>
+<p>本文将为大家分享 15 道由易到难的 ES6 Promise 题, 帮助你快速理解 Promise。</p>
+<hr>
+<h2 id="基础题"><a href="#基础题" class="headerlink" title="基础题"></a>基础题</h2><hr>
+<h3 id="01"><a href="#01" class="headerlink" title="01"></a>01</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const promise = new Promise((resolve, reject) =&gt; {</span><br><span class="line">    console.log(1)</span><br><span class="line">    resolve()</span><br><span class="line">    console.log(2)</span><br><span class="line">})</span><br><span class="line">promise.then(() =&gt; {</span><br><span class="line">    console.log(3)</span><br><span class="line">})</span><br><span class="line">console.log(4)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>解析：</p>
+<p>Promise 构造函数是同步执行的，promise.then 中的函数是异步执行的。</p>
+<p>运行结果：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// =&gt; 1</span><br><span class="line">// =&gt; 2</span><br><span class="line">// =&gt; 4</span><br><span class="line">// =&gt; 3</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="02"><a href="#02" class="headerlink" title="02"></a>02</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">const first = () =&gt; (new Promise((resolve, reject) =&gt; {</span><br><span class="line">    console.log(3);</span><br><span class="line">    let p = new Promise((resolve, reject) =&gt; {</span><br><span class="line">        console.log(7);</span><br><span class="line">        setTimeout(() =&gt; {</span><br><span class="line">            console.log(5);</span><br><span class="line">            resolve(6);</span><br><span class="line">        }, 0)</span><br><span class="line">        resolve(1);</span><br><span class="line">    });</span><br><span class="line">    resolve(2);</span><br><span class="line">    p.then((arg) =&gt; {</span><br><span class="line">        console.log(arg);</span><br><span class="line">    });</span><br><span class="line"></span><br><span class="line">}));</span><br><span class="line"></span><br><span class="line">first().then((arg) =&gt; {</span><br><span class="line">    console.log(arg);</span><br><span class="line">});</span><br><span class="line">console.log(4);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>解析：</p>
+<p>这道题主要理解 js 执行机制。</p>
+<p>第一轮事件循环，先执行宏任务，主 script，new Promise 立即执行，输出 3，执行 p 这个 new Promise 操作，输出 7，发现 setTimeout，将回调函数放入下一轮任务队列（Event Quene），p 的 then，暂且命名为 then1，放入微任务队列，且 first 也有 then，命名为 then2，放入微任务队列。执行 console.log(4),输出 4，宏任务执行结束。</p>
+<p>再执行微任务，执行 then1,输出 1，执行 then2,输出 3.</p>
+<p>第一轮事件循环结束，开始执行第二轮。第二轮事件循环先执行宏任务里面的，也就是 setTimeout 的回调，输出 5.resolve(6)不会生效，因为 p 的 Promise 状态一旦改变就不会再变化了。</p>
+<p>运行结果：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// =&gt; 3</span><br><span class="line">// =&gt; 7</span><br><span class="line">// =&gt; 4</span><br><span class="line">// =&gt; 1</span><br><span class="line">// =&gt; 2</span><br><span class="line">// =&gt; 5</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="03"><a href="#03" class="headerlink" title="03"></a>03</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const promise1 = new Promise((resolve, reject) =&gt; {</span><br><span class="line">  setTimeout(() =&gt; {</span><br><span class="line">    resolve('success')</span><br><span class="line">  }, 1000)</span><br><span class="line">})</span><br><span class="line">const promise2 = promise1.then(() =&gt; {</span><br><span class="line">  throw new Error('error!!!')</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">console.log('promise1', promise1)</span><br><span class="line">console.log('promise2', promise2)</span><br><span class="line"></span><br><span class="line">setTimeout(() =&gt; {</span><br><span class="line">  console.log('promise1', promise1)</span><br><span class="line">  console.log('promise2', promise2)</span><br><span class="line">}, 2000)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>运行结果：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">promise1 Promise {&lt;pending&gt;}</span><br><span class="line">promise2 Promise {&lt;pending&gt;}</span><br><span class="line">Uncaught (in promise) Error: error!!!</span><br><span class="line">    at &lt;anonymous&gt;</span><br><span class="line">promise1 Promise {&lt;resolved&gt;: "success"}</span><br><span class="line">promise2 Promise {&lt;rejected&gt;: Error: error!!!</span><br><span class="line">    at &lt;anonymous&gt;}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>解释：promise 有 3 种状态：pending、fulfilled 或 rejected。状态改变只能是 pending-&gt;fulfilled 或者 pending-&gt;rejected，状态一旦改变则不能再变。上面 promise2 并不是 promise1，而是返回的一个新的 Promise 实例。</p>
+<h3 id="04"><a href="#04" class="headerlink" title="04"></a>04</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const promise = new Promise((resolve, reject) =&gt; {</span><br><span class="line">  resolve('success1')</span><br><span class="line">  reject('error')</span><br><span class="line">  resolve('success2')</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">promise</span><br><span class="line">  .then((res) =&gt; {</span><br><span class="line">    console.log('then: ', res)</span><br><span class="line">  })</span><br><span class="line">  .catch((err) =&gt; {</span><br><span class="line">    console.log('catch: ', err)</span><br><span class="line">  })</span><br></pre></td></tr></tbody></table></figure>
+
+<p>解析：</p>
+<p>构造函数中的 resolve 或 reject 只有第一次执行有效，多次调用没有任何作用，呼应代码二结论：promise 状态一旦改变则不能再变。</p>
+<p>运行结果：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">then: success1</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="05"><a href="#05" class="headerlink" title="05"></a>05</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Promise.resolve(1)</span><br><span class="line">  .then((res) =&gt; {</span><br><span class="line">    console.log(res)</span><br><span class="line">    return 2</span><br><span class="line">  })</span><br><span class="line">  .catch((err) =&gt; {</span><br><span class="line">    return 3</span><br><span class="line">  })</span><br><span class="line">  .then((res) =&gt; {</span><br><span class="line">    console.log(res)</span><br><span class="line">  })</span><br></pre></td></tr></tbody></table></figure>
+
+<p>解析：</p>
+<p>promise 可以链式调用。提起链式调用我们通常会想到通过 return this 实现，不过 Promise 并不是这样实现的。promise 每次调用 .then 或者 .catch 都会返回一个新的 promise，从而实现了链式调用。</p>
+<p>运行结果：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="06"><a href="#06" class="headerlink" title="06"></a>06</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">const promise = new Promise((resolve, reject) =&gt; {</span><br><span class="line">  setTimeout(() =&gt; {</span><br><span class="line">    console.log('once')</span><br><span class="line">    resolve('success')</span><br><span class="line">  }, 1000)</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">const start = Date.now()</span><br><span class="line">promise.then((res) =&gt; {</span><br><span class="line">  console.log(res, Date.now() - start)</span><br><span class="line">})</span><br><span class="line">promise.then((res) =&gt; {</span><br><span class="line">  console.log(res, Date.now() - start)</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+
+<p>解析：</p>
+<p>promise 的 .then 或者 .catch 可以被调用多次，但这里 Promise 构造函数只执行一次。或者说 promise 内部状态一经改变，并且有了一个值，那么后续每次调用 .then 或者 .catch 都会直接拿到该值。</p>
+<p>运行结果：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">once</span><br><span class="line">success 1005</span><br><span class="line">success 1007</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="07"><a href="#07" class="headerlink" title="07"></a>07</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Promise.resolve()</span><br><span class="line">  .then(() =&gt; {</span><br><span class="line">    return new Error('error!!!')</span><br><span class="line">  })</span><br><span class="line">  .then((res) =&gt; {</span><br><span class="line">    console.log('then: ', res)</span><br><span class="line">  })</span><br><span class="line">  .catch((err) =&gt; {</span><br><span class="line">    console.log('catch: ', err)</span><br><span class="line">  })</span><br></pre></td></tr></tbody></table></figure>
+
+<p>解析：</p>
+<p>.then 或者 .catch 中 return 一个 error 对象并不会抛出错误，所以不会被后续的 .catch 捕获，需要改成其中一种：</p>
+<p>return Promise.reject(new Error(‘error!!!’))</p>
+<p>throw new Error(‘error!!!’)</p>
+<p>因为返回任意一个非 promise 的值都会被包裹成 promise 对象，即 return new Error(‘error!!!’) 等价于 return Promise.resolve(new Error(‘error!!!’))。</p>
+<p>运行结果：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">then:  Error: error!!!</span><br><span class="line">    at &lt;anonymous&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="08"><a href="#08" class="headerlink" title="08"></a>08</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const promise = Promise.resolve()</span><br><span class="line">  .then(() =&gt; {</span><br><span class="line">    return promise</span><br><span class="line">  })</span><br><span class="line">promise.catch(console.error)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>解析：.then 或 .catch 返回的值不能是 promise 本身，否则会造成死循环。类似于：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">process.nextTick(function tick () {</span><br><span class="line">  console.log('tick')</span><br><span class="line">  process.nextTick(tick)</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+
+<p>运行结果：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TypeError: Chaining cycle detected for promise #&lt;Promise&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="09"><a href="#09" class="headerlink" title="09"></a>09</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Promise.resolve(1)</span><br><span class="line">  .then(2)</span><br><span class="line">  .then(Promise.resolve(3))</span><br><span class="line">  .then(console.log)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>解析：</p>
+<p>.then 或者 .catch 的参数期望是函数，传入非函数则会发生值穿透。</p>
+<p>运行结果：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="10"><a href="#10" class="headerlink" title="10"></a>10</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Promise.resolve()</span><br><span class="line">  .then(function success (res) {</span><br><span class="line">    throw new Error('error')</span><br><span class="line">  }, function fail1 (e) {</span><br><span class="line">    console.error('fail1: ', e)</span><br><span class="line">  })</span><br><span class="line">  .catch(function fail2 (e) {</span><br><span class="line">    console.error('fail2: ', e)</span><br><span class="line">  })</span><br></pre></td></tr></tbody></table></figure>
+
+<p>解析：</p>
+<p>.then 可以接收两个参数，第一个是处理成功的函数，第二个是处理错误的函数。</p>
+<p>.catch 是 .then 第二个参数的简便写法，但是它们用法上有一点需要注意：.then 的第二个处理错误的函数捕获不了第一个处理成功的函数抛出的错误，而后续的 .catch 可以捕获之前的错误。</p>
+<p>当然以下代码也可以：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Promise.resolve()</span><br><span class="line">  .then(function success1 (res) {</span><br><span class="line">    throw new Error('error')</span><br><span class="line">  }, function fail1 (e) {</span><br><span class="line">    console.error('fail1: ', e)</span><br><span class="line">  })</span><br><span class="line">  .then(function success2 (res) {</span><br><span class="line">  }, function fail2 (e) {</span><br><span class="line">    console.error('fail2: ', e)</span><br><span class="line">  })</span><br></pre></td></tr></tbody></table></figure>
+
+<p>运行结果：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fail2:  Error: error</span><br><span class="line">    at success (&lt;anonymous&gt;)</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="11"><a href="#11" class="headerlink" title="11"></a>11</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">process.nextTick(() =&gt; {</span><br><span class="line">  console.log('nextTick')</span><br><span class="line">})</span><br><span class="line">Promise.resolve()</span><br><span class="line">  .then(() =&gt; {</span><br><span class="line">    console.log('then')</span><br><span class="line">  })</span><br><span class="line">setImmediate(() =&gt; {</span><br><span class="line">  console.log('setImmediate')</span><br><span class="line">})</span><br><span class="line">console.log('end')</span><br></pre></td></tr></tbody></table></figure>
+
+<p>解析：</p>
+<p>process.nextTick 和 promise.then 都属于 microtask，而 setImmediate 属于 macrotask，在事件循环的 check 阶段执行。事件循环的每个阶段（macrotask）之间都会执行 microtask，事件循环的开始会先执行一次 microtask。</p>
+<p>运行结果：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">end</span><br><span class="line">nextTick</span><br><span class="line">then</span><br><span class="line">setImmediate</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="编程题"><a href="#编程题" class="headerlink" title="编程题"></a>编程题</h2><hr>
+<p>上面题目太基础，没有挑战性？那就来点有难度的！</p>
+<h3 id="12"><a href="#12" class="headerlink" title="12"></a>12</h3><p>红灯 3 秒亮一次，绿灯 1 秒亮一次，黄灯 2 秒亮一次；如何使用 Promise 让三个灯不断交替重复亮灯？（海康威视笔试题）</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function red(){</span><br><span class="line">    console.log('red');</span><br><span class="line">}</span><br><span class="line">function green(){</span><br><span class="line">    console.log('green');</span><br><span class="line">}</span><br><span class="line">function yellow(){</span><br><span class="line">    console.log('yellow');</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>分析：</p>
+<p>先看题目，题目要求红灯亮过后，绿灯才能亮，绿灯亮过后，黄灯才能亮，黄灯亮过后，红灯才能亮……所以怎么通过 Promise 实现？</p>
+<p>换句话说，就是红灯亮起时，承诺 2s 秒后亮绿灯，绿灯亮起时承诺 1s 后亮黄灯，黄灯亮起时，承诺 3s 后亮红灯……这显然是一个 Promise 链式调用，看到这里你心里或许就有思路了，我们需要将我们的每一个亮灯动作写在 then()方法中，同时返回一个新的 Promise，并将其状态由 pending 设置为 fulfilled，允许下一盏灯亮起。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">function red() {</span><br><span class="line">  console.log('red');</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">function green() {</span><br><span class="line">  console.log('green');</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">function yellow() {</span><br><span class="line">  console.log('yellow');</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">let myLight = (timer, cb) =&gt; {</span><br><span class="line">  return new Promise((resolve) =&gt; {</span><br><span class="line">    setTimeout(() =&gt; {</span><br><span class="line">      cb();</span><br><span class="line">      resolve();</span><br><span class="line">    }, timer);</span><br><span class="line">  });</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">let myStep = () =&gt; {</span><br><span class="line">  Promise.resolve().then(() =&gt; {</span><br><span class="line">    return myLight(3000, red);</span><br><span class="line">  }).then(() =&gt; {</span><br><span class="line">    return myLight(2000, green);</span><br><span class="line">  }).then(()=&gt;{</span><br><span class="line">    return myLight(1000, yellow);</span><br><span class="line">  }).then(()=&gt;{</span><br><span class="line">    myStep();</span><br><span class="line">  })</span><br><span class="line">};</span><br><span class="line">myStep();</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// output:</span><br><span class="line">// =&gt; red</span><br><span class="line">// =&gt; green</span><br><span class="line">// =&gt; yellow</span><br><span class="line">// =&gt; red</span><br><span class="line">// =&gt; green</span><br><span class="line">// =&gt; yellow</span><br><span class="line">// =&gt; red</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="13"><a href="#13" class="headerlink" title="13"></a>13</h3><p>请实现一个 mergePromise 函数，把传进去的数组按顺序先后执行，并且把返回的数据先后放到数组 data 中。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">const timeout = ms =&gt; new Promise((resolve, reject) =&gt; {</span><br><span class="line">    setTimeout(() =&gt; {</span><br><span class="line">        resolve();</span><br><span class="line">    }, ms);</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line">const ajax1 = () =&gt; timeout(2000).then(() =&gt; {</span><br><span class="line">    console.log('1');</span><br><span class="line">    return 1;</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line">const ajax2 = () =&gt; timeout(1000).then(() =&gt; {</span><br><span class="line">    console.log('2');</span><br><span class="line">    return 2;</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line">const ajax3 = () =&gt; timeout(2000).then(() =&gt; {</span><br><span class="line">    console.log('3');</span><br><span class="line">    return 3;</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line">const mergePromise = ajaxArray =&gt; {</span><br><span class="line">    // 在这里实现你的代码</span><br><span class="line"></span><br><span class="line">};</span><br><span class="line"></span><br><span class="line">mergePromise([ajax1, ajax2, ajax3]).then(data =&gt; {</span><br><span class="line">    console.log('done');</span><br><span class="line">    console.log(data); // data 为 [1, 2, 3]</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 要求分别输出</span><br><span class="line">// 1</span><br><span class="line">// 2</span><br><span class="line">// 3</span><br><span class="line">// done</span><br><span class="line">// [1, 2, 3]</span><br></pre></td></tr></tbody></table></figure>
+
+<p>分析：</p>
+<p>这道题主要考察用 Promise 控制异步流程，首先 ajax1，ajax2，ajax3 都是函数，只是这些函数执行后会返回一个 Promise，按照题目要求只要顺序执行这三个函数就好了，然后把结果放到 data 中;</p>
+<p>答案：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">const mergePromise = ajaxArray =&gt; {</span><br><span class="line">  // 在这里实现你的代码</span><br><span class="line">  // 保存数组中的函数执行后的结果</span><br><span class="line">  var data = [];</span><br><span class="line"></span><br><span class="line">  // Promise.resolve方法调用时不带参数，直接返回一个resolved状态的 Promise 对象。</span><br><span class="line">  var sequence = Promise.resolve();</span><br><span class="line"></span><br><span class="line">  ajaxArray.forEach(item =&gt; {</span><br><span class="line">    // 第一次的 then 方法用来执行数组中的每个函数，</span><br><span class="line">    // 第二次的 then 方法接受数组中的函数执行后返回的结果，</span><br><span class="line">    // 并把结果添加到 data 中，然后把 data 返回。</span><br><span class="line">    sequence = sequence.then(item).then(res =&gt; {</span><br><span class="line">      data.push(res);</span><br><span class="line">      return data;</span><br><span class="line">    });</span><br><span class="line">  });</span><br><span class="line"></span><br><span class="line">// 遍历结束后，返回一个 Promise，也就是 sequence， 他的 [[PromiseValue]] 值就是 data，</span><br><span class="line">// 而 data（保存数组中的函数执行后的结果） 也会作为参数，传入下次调用的 then 方法中。</span><br><span class="line">  return sequence;</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="14"><a href="#14" class="headerlink" title="14"></a>14</h3><p>现有 8 个图片资源的 url，已经存储在数组 urls 中，且已有一个函数 function loading，输入一个 url 链接，返回一个 Promise，该 Promise 在图片下载完成的时候 resolve，下载失败则 reject。</p>
+<p>要求：任何时刻同时下载的链接数量不可以超过 3 个。</p>
+<p>请写一段代码实现这个需求，要求尽可能快速地将所有图片下载完成。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var urls = ['https://www.kkkk1000.com/images/getImgData/getImgDatadata.jpg', 'https://www.kkkk1000.com/images/getImgData/gray.gif', 'https://www.kkkk1000.com/images/getImgData/Particle.gif', 'https://www.kkkk1000.com/images/getImgData/arithmetic.png', 'https://www.kkkk1000.com/images/getImgData/arithmetic2.gif', 'https://www.kkkk1000.com/images/getImgData/getImgDataError.jpg', 'https://www.kkkk1000.com/images/getImgData/arithmetic.gif', 'https://www.kkkk1000.com/images/wxQrCode2.png'];</span><br><span class="line"></span><br><span class="line">function loadImg(url) {</span><br><span class="line">    return new Promise((resolve, reject) =&gt; {</span><br><span class="line">        const img = new Image()</span><br><span class="line">        img.onload = () =&gt; {</span><br><span class="line">            console.log('一张图片加载完成');</span><br><span class="line">            resolve();</span><br><span class="line">        }</span><br><span class="line">        img.onerror = reject;</span><br><span class="line">        img.src = url;</span><br><span class="line">    })</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+<p>解析</p>
+<p>题目的意思是需要先并发请求 3 张图片，当一张图片加载完成后，又会继续发起一张图片的请求，让并发数保持在 3 个，直到需要加载的图片都全部发起请求。</p>
+<p>用 Promise 来实现就是，先并发请求 3 个图片资源，这样可以得到 3 个 Promise，组成一个数组 promises，然后不断调用 Promise.race 来返回最快改变状态的 Promise，然后从数组 promises 中删掉这个 Promise 对象，再加入一个新的 Promise，直到全部的 url 被取完，最后再使用 Promise.all 来处理一遍数组 promises 中没有改变状态的 Promise。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function limitLoad(urls, handler, limit) {</span><br><span class="line">  // 对数组做一个拷贝</span><br><span class="line">    const sequence = […urls];</span><br><span class="line"></span><br><span class="line">  let promises = [];</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">//并发请求到最大数</span><br><span class="line">  promises = sequence.splice(0, limit).map((url, index) =&gt; {</span><br><span class="line">    // 这里返回的 index 是任务在 promises 的脚标，用于在 Promise.race 之后找到完成的任务脚标</span><br><span class="line">    return handler(url).then(() =&gt; {</span><br><span class="line">      return index;</span><br><span class="line">    });</span><br><span class="line">  });</span><br><span class="line"></span><br><span class="line">  // 利用数组的 reduce 方法来以队列的形式执行</span><br><span class="line">  return sequence.reduce((last, url, currentIndex) =&gt; {</span><br><span class="line">    return last.then(() =&gt; {</span><br><span class="line">      // 返回最快改变状态的 Promise</span><br><span class="line">      return Promise.race(promises)</span><br><span class="line">    }).catch(err =&gt; {</span><br><span class="line">      // 这里的 catch 不仅用来捕获前面 then 方法抛出的错误</span><br><span class="line">      // 更重要的是防止中断整个链式调用</span><br><span class="line">      console.error(err)</span><br><span class="line">    }).then((res) =&gt; {</span><br><span class="line">      // 用新的 Promise 替换掉最快改变状态的 Promise</span><br><span class="line">      promises[res] = handler(sequence[currentIndex]).then(() =&gt; {</span><br><span class="line">        return res</span><br><span class="line">      });</span><br><span class="line">    })</span><br><span class="line">  }, Promise.resolve()).then(() =&gt; {</span><br><span class="line">    return Promise.all(promises)</span><br><span class="line">  })</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">limitLoad(urls, loadImg, 3);</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">因为 limitLoad 函数也返回一个 Promise，所以当 所有图片加载完成后，可以继续链式调用</span><br><span class="line"></span><br><span class="line">limitLoad(urls, loadImg, 3).then(() =&gt; {</span><br><span class="line">    console.log('所有图片加载完成');</span><br><span class="line">}).catch(err =&gt; {</span><br><span class="line">    console.error(err);</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="15"><a href="#15" class="headerlink" title="15"></a>15</h3><p>封装一个异步加载图片的方法</p>
+<p>解析：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function loadImageAsync(url) {</span><br><span class="line">    return new Promise(function(resolve,reject) {</span><br><span class="line">        var image = new Image();</span><br><span class="line">        image.onload = function() {</span><br><span class="line">            resolve(image)</span><br><span class="line">        };</span><br><span class="line">        image.onerror = function() {</span><br><span class="line">            reject(new Error('Could not load image at' + url));</span><br><span class="line">        };</span><br><span class="line">        image.src = url;</span><br><span class="line">     });</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><hr>
+<p>这一部分题目我从网上收集来的一些练习题，几道编程题我自己第一遍做也觉得没那么好做，但是做完感觉获益匪浅，加深了我对 Promise 特性和如何更好使用 Promise 的理解。</p>
+<p>所以 Promise 真正的学习，还是要结合具体场景实际开发运用。</p>
+<p>Promise 功能看似简单，但认真整理却发现 Promise 内容确实挺多的，自己花了一整天时间去查阅、学习、理解、跑代码、然后整理 Promise 的笔记。</p>
+<p>觉得有用 ？打赏给予鼓励，我会继续加油滴！！</p>
+<!-- 样式代码 -->
+<style>
+/* 渐变分割线 */
+hr {
+  border-image: linear-gradient(to right, #F00, #0F0 20%, #00F 80%, #000) 1 !important;
+}
+/* 首行缩进 */
+p {
+  text-indent:2em
+}
+</style>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">果果</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://like268411.github.io/2022/05/15/15-dao-es6-promise-shi-zhan-lian-xi-ti/">https://like268411.github.io/2022/05/15/15-dao-es6-promise-shi-zhan-lian-xi-ti/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">果果</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/ES6/">
+                                    <span class="chip bg-color">ES6</span>
+                                </a>
+                            
+                                <a href="/tags/Promise/">
+                                    <span class="chip bg-color">Promise</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC81NjM4NC8zMjg0Nw==">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2022/05/15/15-dao-es6-promise-shi-zhan-lian-xi-ti/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="15道ES6 Promise实战练习题">
+                        
+                        <span class="card-title">15道ES6 Promise实战练习题</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-15
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ES6%E7%B2%BE%E9%80%89%E6%96%87%E7%AB%A0/" class="post-category">
+                                    ES6精选文章
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ES6/">
+                        <span class="chip bg-color">ES6</span>
+                    </a>
+                    
+                    <a href="/tags/Promise/">
+                        <span class="chip bg-color">Promise</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/05/12/chong-wen-es6-he-xin-gai-nian-he-ji-ben-yong-fa/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="重温ES6核心概念和基本用法">
+                        
+                        <span class="card-title">重温ES6核心概念和基本用法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ES6%E7%B2%BE%E9%80%89%E6%96%87%E7%AB%A0/" class="post-category">
+                                    ES6精选文章
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ES6/">
+                        <span class="chip bg-color">ES6</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+ <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2065854146"
+                   fixed='true'
+                   autoplay='true'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='false'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div class="container row center-align" style="margin-bottom: 0px !important;">
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year">2019-2022</span>
+      
+      <!-- <span id="year">2019</span> -->
+      <a href="/about" target="_blank">果果饲养员</a>
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a> |&nbsp;Theme&nbsp;<a href="https://github.com/like268411/like268411.github.io" target="_blank">Matery</a>
+      <br />
+       &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span class="white-color">9.5k</span>&nbsp;字      
+      <span id="busuanzi_container_site_pv"> |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv" class="white-color"></span>&nbsp;次 </span>
+       
+      <span id="busuanzi_container_site_uv"> |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv" class="white-color"></span>&nbsp;人 </span>
+      
+      <br />
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/like268411" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2684112913@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2684112913" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2684112913" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+ <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+ <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+ <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+ 
+    <script src="/libs/others/clicklove.js" async="async"></script>
+     
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+           
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    <script type="text/javascript">
+      var OriginTitile = document.title,
+        st
+      document.addEventListener('visibilitychange', function () {
+        document.hidden
+          ? ((document.title = 'ヽ(●-`Д´-)ノ你要玩捉迷藏嘛'), clearTimeout(st))
+          : ((document.title = '(Ő∀Ő3)ノ好哦！'),
+            (st = setTimeout(function () {
+              document.title = OriginTitile
+            }, 3e3)))
+      })
+    </script>
+  </body>
+</html>
